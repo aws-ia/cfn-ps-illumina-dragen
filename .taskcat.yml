@@ -1,5 +1,5 @@
 project:
-  name: quickstart-illumina-dragen
+  name: cfn-ps-illumina-dragen
   owner: quickstart-eng@amazon.com
   shorten_stack_name: true
   package_lambda: false
@@ -24,7 +24,7 @@ tests:
       PublicSubnet2CIDR: 10.150.16.0/20
       QSS3BucketName: $[taskcat_autobucket]
       QSS3BucketRegion: $[taskcat_current_region]
-      QSS3KeyPrefix: quickstart-illumina-dragen/
+      QSS3KeyPrefix: cfn-ps-illumina-dragen/
       RetryNumber: '1'
       VPCCIDR: 10.150.0.0/16
     regions:
