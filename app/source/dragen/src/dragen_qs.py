@@ -84,8 +84,6 @@ def exec_cmd(cmd, shell=True):
 
     if not shell:
         p = subprocess.Popen(cmd.split())
-    else:
-        p = subprocess.Popen(cmd, shell=True, executable='/bin/bash')
 
     err = p.wait()
     return err
