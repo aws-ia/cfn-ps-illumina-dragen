@@ -57,7 +57,7 @@ Parameters:
     ConstraintDescription: S3 genomics bucket name can include numbers, lowercase
       letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen
       (-).
-    Description: S3 bucket name for the bucket to which you'll read and write genomics data. 
+    Description: S3 bucket name for the bucket to which you'll read and write genomics data.
     Type: String
   DragenDockerImage:
     Type: String
@@ -259,6 +259,13 @@ Resources:
 
               --==BOUNDARY==--
   DragenComputeEnvironmentSpot:
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3008
+          ignore_reasons:
+            E3008: Known working configuration
     Type: AWS::Batch::ComputeEnvironment
     Properties:
       ComputeEnvironmentName: dragen-spot
@@ -269,7 +276,7 @@ Resources:
         BidPercentage: !Ref BidPercentage
         Ec2KeyPair: !Ref Ec2KeyPair
         ImageId: !Ref ImageId
-        InstanceRole: !Ref DragenInstanceRole
+        InstanceRole: !Ref DragenInstanceProfile
         InstanceTypes: [!Ref InstanceType]
         MinvCpus: !Ref MinvCpus
         DesiredvCpus: !Ref DesiredvCpus
@@ -283,6 +290,13 @@ Resources:
           LaunchTemplateId: !Ref DragenLaunchTemplate
   DragenComputeEnvironmentOnDemand:
     Type: AWS::Batch::ComputeEnvironment
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3008
+          ignore_reasons:
+            E3008: Known working configuration
     Properties:
       ComputeEnvironmentName: dragen-ondemand
       ServiceRole: !Ref BatchServiceRole
@@ -291,7 +305,7 @@ Resources:
       ComputeResources:
         Ec2KeyPair: !Ref Ec2KeyPair
         ImageId: !Ref ImageId
-        InstanceRole: !Ref DragenInstanceRole
+        InstanceRole: !Ref DragenInstanceProfile
         InstanceTypes: [!Ref InstanceType]
         MinvCpus: !Ref MinvCpus
         DesiredvCpus: !Ref DesiredvCpus
