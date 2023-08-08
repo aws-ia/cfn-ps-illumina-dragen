@@ -1,17 +1,15 @@
-:partner-solution-project-name: partner-solution-repo-name
-:partner-solution-github-org: aws-quickstart
-:partner-product-name: Full Product Name
-:partner-product-short-name: Product Name
-:partner-company-name: Example Company Name, Ltd.
-:doc-month: January
-:doc-year: 2023
-:partner-contributors: John Smith, {partner-company-name}
-// :other-contributors: Akua Mansa, Trek10
-:aws-contributors: Janine Singh, AWS IoT Partner team
-:aws-ia-contributors: Toni Jones, AWS Integration & Automation team
+:cfn-ps-project-name: cfn-ps-illumina-dragen
+:partner-product-name: Illumina DRAGEN Bio-It Platform
+:partner-product-short-name: DRAGEN
+:partner-company-name: Illumina
+:doc-month: April
+:doc-year: 2021
+:partner-contributors: Illumina
+:quickstart-contributors: Will Quiles, Olivia Choudhury, Aaron Friedman, and Vinod Shukla, AWS Quick Start team
 :deployment_time: 15 minutes
 :default_deployment_region: us-east-1
-// :private_repo:
-
-
-// For instructions on creating this deployment guide, refer to "Build your AWS Partner Solution documentation" (https://aws-ia-us-west-2.s3.us-west-2.amazonaws.com/docs/content/index.html#/).
+:parameters_as_appendix:
+:disable_requirements:
+:template_deterministic_ec2_instances:
+:marketplace_subscription: https://aws.amazon.com/marketplace/pp/Illumina-Inc-DRAGEN-Complete-Suite/B07CZ3F5HY
+:marketplace_listing_url: https://aws.amazon.com/marketplace/pp/Illumina-Inc-DRAGEN-Complete-Suite/B07CZ3F5HY
