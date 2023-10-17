@@ -1,33 +1,35 @@
 project:
-  name: cfn-sample-template
-  owner: quickstart@amazon.com
+  name: cfn-ps-illumina-dragen
+  owner: quickstart-eng@amazon.com
+  shorten_stack_name: true
   package_lambda: false
   regions:
-  - ap-northeast-1
-  - ap-northeast-2
-  - ap-southeast-1
-  - ap-southeast-2
-  - eu-central-1
   - eu-west-1
-  - sa-east-1
   - us-east-1
-  - us-west-1
   - us-west-2
 tests:
-  sample:
+  quickstart-illumina-dragent1:
     parameters:
-      Param1: 'Inputs to Stack'
-      # Examples: of other taskcat dynamic input parameters for more into see http://taskcat.io
-      #
-      #      AvailabilityZones: $[taskcat_genaz_3]
-      #      ByteValue: 1
-      #      PasswordA: $[taskcat_genpass_8A]
-      #      PasswordB: $[taskcat_genpass_32S]
-      #      RandomNumber: $[taskcat_random-numbers]
-      #      RandomString: $[taskcat_random-string]
-      #      StackName: TestStack
-      #      UUID: $[taskcat_genuuid]
-      #
+      AvailabilityZones: $[taskcat_genaz_2]
+      BidPercentage: '50'
+      DesiredvCpus: '0'
+      GenomicsS3Bucket: $[taskcat_autobucket]
+      InstanceType: f1.2xlarge
+      KeyPairName: $[taskcat_getkeypair]
+      MaxvCpus: '256'
+      MinvCpus: '0'
+      PrivateSubnet1CIDR: 10.150.32.0/20
+      PrivateSubnet2CIDR: 10.150.48.0/20
+      PublicSubnet1CIDR: 10.150.0.0/20
+      PublicSubnet2CIDR: 10.150.16.0/20
+      QSS3BucketName: $[taskcat_autobucket]
+      QSS3BucketRegion: $[taskcat_current_region]
+      QSS3KeyPrefix: cfn-ps-illumina-dragen/
+      RetryNumber: '1'
+      VPCCIDR: 10.150.0.0/16
     regions:
-    - us-east-2
-    template: templates/another-workload.template.yaml
+    - us-east-1
+    - us-west-2
+    - eu-west-1
+    s3_bucket: ''
+    template: templates/dragen-main.template.yaml
