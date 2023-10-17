@@ -79,13 +79,11 @@ def find_arg_in_list(arglist, *argv):
 #########################################################################################
 # exec_cmd - Execute command and return [stdout/stderr, exitstatus]
 #
-def exec_cmd(cmd, shell=True):
+def exec_cmd(cmd):
     printf("Executing %s" % cmd.strip())
 
     if not shell:
         p = subprocess.Popen(cmd.split())
-    else:
-        p = subprocess.Popen(cmd, shell=True, executable='/bin/bash')
 
     err = p.wait()
     return err
