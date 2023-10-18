@@ -24,7 +24,7 @@ Parameters:
     Description: The ARN of the Cleanup Role.
     Type: String
 Conditions:
-  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-ia-us-east-1']
+  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-ia']
 Resources:
   BucketCleanup:
     Type: AWS::CloudFormation::Stack

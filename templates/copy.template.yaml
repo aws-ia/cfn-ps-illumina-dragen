@@ -15,7 +15,7 @@ Parameters:
     Description: "Bucket where Lambda artifacts will be copied to"
     Default: ""
 Conditions:
-  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-ia-us-east-1']
+  UsingDefaultBucket: !Equals [!Ref QSS3BucketName, 'aws-ia']
 Resources:
   CopyRole:
     Type: AWS::IAM::Role
