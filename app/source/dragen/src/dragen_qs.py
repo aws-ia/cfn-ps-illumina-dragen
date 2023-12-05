@@ -81,7 +81,7 @@ def find_arg_in_list(arglist, *argv):
 #
 def exec_cmd(cmd):
     printf("Executing %s" % cmd.strip())
-    p = subprocess.Popen(cmd.split())
+    p = subprocess.Popen(cmd, shell=True, executable='/bin/bash')
     err = p.wait()
     return err
 
