@@ -81,7 +81,7 @@ def find_arg_in_list(arglist, *argv):
 #
 def exec_cmd(cmd):
     printf("Executing %s" % cmd.strip())
-    p = subprocess.Popen(cmd.split())
+    p = subprocess.Popen(cmd, shell=True, executable='/bin/bash')
     err = p.wait()
     return err
 
@@ -409,6 +409,13 @@ class DragenJob(object):
 
         if not self.input_dir:
             self.input_dir = self.DEFAULT_DATA_FOLDER + 'inputs/'
+
+        # Clean up the input directory first
+        # Residual files left by previous job runs can trick the downloader into skipping
+        # some of the required downloads.
+        rm_in_path = self.input_dir
+        printf("Cleaning up Input dir %s" % rm_in_path)
+        shutil.rmtree(rm_in_path, ignore_errors=True)
 
         # -- fastq list file download
         if self.fastq_list_url:
