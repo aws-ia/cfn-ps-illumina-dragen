@@ -732,7 +732,7 @@ class DragenJob(object):
         # Save the Dragen output to a file instead of stdout
         output_log_path = self.output_dir + '/' + self.DRAGEN_LOG_FILE_NAME % round(time.time())
         redirect_cmd = self.REDIRECT_OUTPUT_CMD_SUFFIX % output_log_path
-        dragen_cmd = "%s %s" % (dragen_cmd, redirect_cmd)
+        #dragen_cmd = "%s %s" % (dragen_cmd, redirect_cmd)
 
         # Run the Dragen process
         self.process_start_time = datetime.datetime.utcnow()

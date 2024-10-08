@@ -1,6 +1,11 @@
 # DRAGEN Quickstart Docker image generator --
-FROM public.ecr.aws/docker/library/centos:centos7.9.2009
-RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#FROM public.ecr.aws/docker/library/centos:centos7.9.2009
+#RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+FROM public.ecr.aws/docker/library/oraclelinux:8
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+
+RUN /usr/bin/crb enable
 
 # Install Basic packages needed for Dragen
 RUN yum -y install \
